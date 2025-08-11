@@ -2,26 +2,24 @@ const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 
 const jump = () => {
-    if (!mario.classList.contains('jump')) {
-        mario.classList.add('jump');
-        setTimeout(() => {
-            mario.classList.remove('jump');
-        }, 500);
-    }
+    mario.classList.add('jump');
+    setTimeout(() => {
+        mario.classList.remove('jump');
+    }, 500);
 };
 
 const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+    const marioBottom = parseFloat(window.getComputedStyle(mario).bottom);
 
-    if (pipePosition <= 80 && pipePosition > 0 && marioPosition < 80) {
+    if (pipePosition > 0 && pipePosition < 80 && marioBottom < 50) {
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
 
         mario.style.animation = 'none';
-        mario.style.bottom = `${marioPosition}px`;
+        mario.style.bottom = `${marioBottom}px`;
 
-        mario.src = './assets/ethos_glitch.png';
+        mario.src = 'images/ethos.png'; // tetap pakai EthOS
         mario.style.width = '80px';
 
         clearInterval(loop);
