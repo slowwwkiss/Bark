@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EthOS Jump Game</title>
+<style>
+    body {
+        margin: 0;
+        background-color: #87CEEB;
+        font-family: Arial, sans-serif;
+    }
+    .game-board {
+        width: 100%;
+        height: 300px;
+        border-bottom: 5px solid green;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(#87CEEB, #E0F6FF);
+    }
+    .ethos {
+        position: absolute;
+        bottom: 0;
+        width: 60px;
+    }
+    .cano {
+        position: absolute;
+        bottom: 0;
+        width: 60px;
+        animation: cano-move 1.5s infinite linear;
+    }
+    @keyframes cano-move {
+        from { right: -60px; }
+        to { right: 100%; }
+    }
+    .jump {
+        animation: ethos-jump 500ms ease-out;
+    }
+    @keyframes ethos-jump {
+        0% { bottom: 0; }
+        40% { bottom: 120px; }
+        60% { bottom: 120px; }
+        100% { bottom: 0; }
+    }
+    .contador {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 4px black;
+    }
+    .botao1 {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        font-size: 18px;
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="game-board">
+    <img src="pAFgpio-_400x400.png" alt="EthOS Logo" class="ethos">
+    <img src="https://i.imgur.com/0gkY3fM.png" alt="Pipa" class="cano" style="right:0">
+    <div class="contador" id="contadorPulos">0</div>
+    <button onclick="reiniciarJogo()" id="botaoReiniciar" class="botao1">Reiniciar</button>
+</div>
+
+<script>
+    const ethos = document.querySelector('.ethos');
+    const cano = document.querySelector('.cano');
+    let contadorDePulos = 0;
+
+    function atualizarContador() {
