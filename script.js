@@ -1,29 +1,48 @@
 const mario = document.querySelector('.mario');
-const pipe = document.querySelector('.pipe');
+const cano = document.querySelector('.cano');
+let contadorDePulos = 0 
+
+
+function atualizarContador() {
+    document.getElementById("contadorPulos").textContent = contadorDePulos;
+  }
 
 const jump = () => {
     mario.classList.add('jump');
+    
     setTimeout(() => {
-        mario.classList.remove('jump');
-    }, 500);
-};
+
+    mario.classList.remove('jump');
+
+    contadorDePulos++
+    atualizarContador()
+
+    },500);
+}
 
 const loop = setInterval(() => {
-    const pipePosition = pipe.offsetLeft;
-    const marioBottom = parseFloat(window.getComputedStyle(mario).bottom);
 
-    if (pipePosition > 0 && pipePosition < 80 && marioBottom < 50) {
-        pipe.style.animation = 'none';
-        pipe.style.left = `${pipePosition}px`;
+    const canoPosition = cano.offsetLeft;
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+  
+    if (canoPosition <= 105 && canoPosition > 0 && marioPosition < 85) {
+        
+        cano.style.animation = 'none';
+        cano.style.left = `${canoPosition}px`;
 
         mario.style.animation = 'none';
-        mario.style.bottom = `${marioBottom}px`;
+        mario.style.bottom = `${marioPosition}px`;
 
-        mario.src = 'images/ethos.png'; // tetap pakai EthOS
-        mario.style.width = '80px';
+        mario.src = './gif mario/morte.webp'
 
         clearInterval(loop);
-    }
-}, 10);
+
+        document.getElementById("botaoReiniciar").style.display = "block";
+    }     
+}, 10)
+
+function reiniciarJogo() {
+    window.location.reload();
+}
 
 document.addEventListener('keydown', jump);
