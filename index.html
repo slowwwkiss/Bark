@@ -18,13 +18,11 @@
         <button onclick="reiniciarJogo()" id="botaoReiniciar" class="botao1">Restart Game</button>
     </div>
 
-    <!-- 🔗 Tambahan Link di bawah -->
     <div class="links-container">
-        <p>
+        <p class="contract-info">
             <strong>Contract Address:</strong> 
-            <a href="https://etherscan.io/token/0x1234567890abcdef1234567890abcdef12345678" target="_blank">
-                0x1234...5678
-            </a>
+            <span id="contractAddress">0x1234...5678</span>
+            <button onclick="copyContract()" class="copy-button">Copy</button>
         </p>
         <p>
             <a href="https://x.com/YOUR_X_HANDLE" target="_blank">Follow on X</a> | 
