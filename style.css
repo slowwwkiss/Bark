@@ -81,7 +81,7 @@
         bottom: 0;
     }
 
-  
+    
     40% {
         bottom: 145px;
     }
@@ -132,4 +132,23 @@
 
 .links-container a:hover {
     text-decoration: underline;
+}
+
+.contract-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-button {
+    background-color: #f7f7f7;
+    color: black;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 10px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: bold;
 }
