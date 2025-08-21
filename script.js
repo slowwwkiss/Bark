@@ -3,48 +3,42 @@ const cano = document.querySelector('.cano');
 let contadorDePulos = 0;
 
 function atualizarContador() {
-    document.getElementById("contadorPulos").textContent = contadorDePulos;
+  document.getElementById("contadorPulos").textContent = contadorDePulos;
 }
 
 const jump = () => {
-    mario.classList.add('jump');
-    
-    setTimeout(() => {
-        mario.classList.remove('jump');
-        contadorDePulos++;
-        atualizarContador();
-    }, 500);
+  mario.classList.add('jump');
+  
+  setTimeout(() => {
+    mario.classList.remove('jump');
+    contadorDePulos++;
+    atualizarContador();
+  }, 500);
 };
 
 const loop = setInterval(() => {
-    const canoPosition = cano.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+  const canoPosition = cano.offsetLeft;
+  const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
   
-    if (canoPosition <= 105 && canoPosition > 0 && marioPosition < 85) {
-        cano.style.animation = 'none';
-        cano.style.left = `${canoPosition}px`;
-
-        mario.style.animation = 'none';
-        mario.style.bottom = `${marioPosition}px`;
-
-        mario.src = 'gif mario/morte.webp';
-
-        clearInterval(loop);
-
-        document.getElementById("botaoReiniciar").style.display = "block";
-    }     
+  if (canoPosition <= 105 && canoPosition > 0 && marioPosition < 85) {
+    cano.style.animation = 'none';
+    cano.style.left = `${canoPosition}px`;
+    mario.style.animation = 'none';
+    mario.style.bottom = `${marioPosition}px`;
+    mario.src = 'gif mario/morte.webp';  // pakai folder gif mario
+    clearInterval(loop);
+    document.getElementById("botaoReiniciar").style.display = "block";
+  }
 }, 10);
 
 function reiniciarJogo() {
-    window.location.reload();
+  window.location.reload();
+}
+
+function copyContract() {
+  const contract = document.getElementById("contract").textContent;
+  navigator.clipboard.writeText(contract);
+  alert("Contract copied: " + contract);
 }
 
 document.addEventListener('keydown', jump);
-
-// ==== Tambahan: Copy Contract Address ====
-function copyAddress() {
-    const address = document.getElementById("contract-address").textContent;
-    navigator.clipboard.writeText(address).then(() => {
-        alert("Contract address copied!");
-    });
-}
