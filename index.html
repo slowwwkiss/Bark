@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meme Coin Game</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Mario Bros</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
-  <div class="game-container">
-    <canvas id="gameCanvas"></canvas>
-    <button id="restartBtn">Restart Game</button>
-  </div>
+    <img src="./gif mario/verde.jpg" alt="verde" class="back">
+    <div class="game-board">
+        <img src="./gif mario/nuvem.png" alt="nuvens" class="nuvem">
+        <img src="./gif mario/mario.gif" alt="Mario correndo" class="mario">
+        <img src="./gif mario/cano.jpg" alt="cano verde" class="cano">
+        <div class="contador" id="contadorPulos">0</div>
+        <button onclick="reiniciarJogo()" id="botaoReiniciar" class="botao1">Restart Game</button>
+    </div>
 
-  <!-- Footer info -->
-  <div class="footer">
-    <p>
-      Contract Address: 
-      <span class="ca">0x1234567890ABCDEF1234567890ABCDEF12345678</span>
-      <button onclick="copyCA()">Copy</button>
-    </p>
-    <p>
-      <a href="https://x.com/youraccount" target="_blank">Follow on X</a> | 
-      <a href="https://pump.fun/coin/xxxx" target="_blank">View on Pump.fun</a>
-    </p>
-  </div>
-
-  <script src="script.js"></script>
-  <script>
-    function copyCA() {
-      const ca = document.querySelector('.ca').innerText;
-      navigator.clipboard.writeText(ca);
-      alert('Contract Address copied!');
-    }
-  </script>
+    <!-- 🔗 Tambahan Link di bawah -->
+    <div class="links-container">
+        <p>
+            <strong>Contract Address:</strong> 
+            <a href="https://etherscan.io/token/0x1234567890abcdef1234567890abcdef12345678" target="_blank">
+                0x1234...5678
+            </a>
+        </p>
+        <p>
+            <a href="https://x.com/YOUR_X_HANDLE" target="_blank">Follow on X</a> | 
+            <a href="https://pump.fun/YOUR_PUMP_LINK" target="_blank">View on Pump.fun</a>
+        </p>
+    </div>
 </body>
 </html>
