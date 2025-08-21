@@ -25,7 +25,7 @@ const loop = setInterval(() => {
     cano.style.left = `${canoPosition}px`;
     mario.style.animation = 'none';
     mario.style.bottom = `${marioPosition}px`;
-    mario.src = 'gif mario/morte.webp';  // pakai folder gif mario
+    mario.src = 'gif mario/morte.webp';
     clearInterval(loop);
     document.getElementById("botaoReiniciar").style.display = "block";
   }
@@ -36,9 +36,14 @@ function reiniciarJogo() {
 }
 
 function copyContract() {
-  const contract = document.getElementById("contract").textContent;
-  navigator.clipboard.writeText(contract);
-  alert("Contract copied: " + contract);
+  const contractAddress = document.getElementById("contractAddress").textContent;
+  navigator.clipboard.writeText(contractAddress.replace("...5678", "5678").trim())
+    .then(() => {
+      alert("Contract copied: " + contractAddress.trim());
+    })
+    .catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
 }
 
 document.addEventListener('keydown', jump);
