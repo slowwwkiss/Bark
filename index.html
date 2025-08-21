@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meme Coin Mario Game</title>
+  <title>Meme Coin Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="game-board">
-    <img src="gif mario/back.png" class="back" alt="verde">
-    <img src="gif mario/nuvem.png" class="nuvem" alt="nuvens">
-    <img src="gif mario/mario.gif" class="mario" alt="Mario correndo">
-    <img src="gif mario/cano.png" class="cano" alt="cano verde">
+  <div class="game-container">
+    <canvas id="gameCanvas"></canvas>
+    <button id="restartBtn">Restart Game</button>
   </div>
 
-  <div class="contador" id="contadorPulos">0</div>
-
-  <button id="botaoReiniciar" class="botao1" onclick="reiniciarJogo()">Restart Game</button>
-
-  <div class="contract-info">
-    <p><strong>Contract Address:</strong> 
-      <span id="contract">0x1234567890ABCDEF1234567890ABCDEF12345678</span>
-      <button onclick="copyContract()">Copy</button>
+  <!-- Footer info -->
+  <div class="footer">
+    <p>
+      Contract Address: 
+      <span class="ca">0x1234567890ABCDEF1234567890ABCDEF12345678</span>
+      <button onclick="copyCA()">Copy</button>
     </p>
     <p>
-      <a href="https://x.com/" target="_blank">Follow on X</a> | 
-      <a href="https://pump.fun/" target="_blank">View on Pump.fun</a>
+      <a href="https://x.com/youraccount" target="_blank">Follow on X</a> | 
+      <a href="https://pump.fun/coin/xxxx" target="_blank">View on Pump.fun</a>
     </p>
   </div>
 
   <script src="script.js"></script>
+  <script>
+    function copyCA() {
+      const ca = document.querySelector('.ca').innerText;
+      navigator.clipboard.writeText(ca);
+      alert('Contract Address copied!');
+    }
+  </script>
 </body>
 </html>
