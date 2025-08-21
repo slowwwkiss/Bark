@@ -27,7 +27,7 @@ const loop = setInterval(() => {
         mario.style.animation = 'none';
         mario.style.bottom = `${marioPosition}px`;
 
-        mario.src = './gif mario/morte.webp';
+        mario.src = 'gif mario/morte.webp';
 
         clearInterval(loop);
 
