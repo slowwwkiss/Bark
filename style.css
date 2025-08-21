@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-.back{
+.back {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.game-board{
+.game-board {
     width: 100%;
     height: 500px;
     border-bottom: 15px solid rgb(35, 160, 35);
@@ -21,86 +21,69 @@
     background: linear-gradient(#87CEEB, #E0F6FF);
 }
 
-.cano{
+.cano {
     position: absolute;
     bottom: 0;
     width: 90px;
     animation: cano-animation 1.5s infinite linear;
 }
 
-.mario{
+.mario {
     width: 130px;
     bottom: 0;
     position: absolute;
 }
 
-.jump{
+.jump {
     animation: jump 600ms ease-out;
 }
 
-.nuvem{
+.nuvem {
     width: 650px;
     height: 200px;
     position: absolute;
     animation: nuvem-animation 15s infinite linear;
 }
 
-.contador{
+.contador {
     font-size: 100px;
     font-weight: bold;
     color: rgb(119, 240, 12);
     text-align: center;
 }
 
-.botao1{
+.botao1 {
     display: none;
-    width: 400;
+    width: 400px;
     height: 50px;
     position: absolute;
     padding: 10px;
     font-weight: bold;
     top: 50%;
-    left: 47%;   
+    left: 47%;
+    transform: translateX(-50%);
     background-color: crimson;
-    color: aliceblue; 
+    color: aliceblue;
     border-radius: 10%;
+    cursor: pointer;
 }
 
 @keyframes cano-animation {
-    from {
-        right: -80px;
-    }
-
-    to{
-        right: 100%;
-    }
+    from { right: -80px; }
+    to { right: 100%; }
 }
 
 @keyframes jump {
-    0% {
-        bottom: 0;
-    }
-    40% {
-        bottom: 145px;
-    }
-    50% {
-        bottom: 145px;
-    }
-    60%{
-        bottom: 145px;
-    }
-    100% {
-        bottom: 0;
-    }
+    0% { bottom: 0; }
+    40% { bottom: 145px; }
+    50% { bottom: 145px; }
+    60% { bottom: 145px; }
+    100% { bottom: 0; }
 }
 
 @keyframes nuvem-animation {
-    from{
-        right: -650px; 
-    }
-    to {
-        right: 100%;
-    }
+    from { right: -650px; }
+    to { right: 100%; }
 }
 
 /* ==== Token Info Section ==== */
